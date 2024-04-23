@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link,useNavigate } from 'react-router-dom'; // Import Link for navigation
+import { Link, useNavigate } from 'react-router-dom'; // Import Link for navigation
 
 const Login = () => {
-    const nav=useNavigate();
+    const nav = useNavigate();
     const [formdata, setformdata] = useState({
         email: '',
         password: ''
@@ -32,7 +32,7 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-cover" style={{backgroundImage: 'url("/R.jpg")'}}>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-cover" style={{ backgroundImage: 'url("/R.jpg")' }}>
             <div className="max-w-md w-full p-6 bg-white bg-opacity-75 rounded-lg shadow-md">
                 <h2 className="text-center text-3xl font-extrabold text-gray-900">Login</h2>
                 <form className="mt-8 space-y-6" onSubmit={handleLogin}>
@@ -76,7 +76,7 @@ const Login = () => {
                     </div>
                 </form>
                 <div className="mt-4">
-                    <Link to="/" className="text-indigo-600 hover:text-indigo-900">Don't have an account? Sign up</Link>
+                    <Link to="/signup" className="text-indigo-600 hover:text-indigo-900">Don't have an account? Sign up</Link>
                 </div>
             </div>
         </div>

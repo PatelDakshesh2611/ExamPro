@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import LandingPage from './Landing'
-import UserProfile from './Userdetails'
+import Homepart from './Homepart'
+import { useSelector } from 'react-redux'
+// import '../Styles/scrollbar.css'
 
-const Home = () => {
-
+const Home = () => {    
     const [showlanding,setshowlanding]=useState(0)
-
     const showlanginpage=()=>{
-        setshowlanding(1)
+        setshowlanding(0)
         setTimeout(() => {
             setshowlanding(0);
         }, 4000);
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div>
       {
-        showlanding?<LandingPage/>:<><UserProfile/></>
+        showlanding?<LandingPage/>:<><Homepart/></>
       }
     </div>
   )

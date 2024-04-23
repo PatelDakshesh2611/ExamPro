@@ -11,10 +11,9 @@ const SignupController = async (req, res) => {
       email:req.body.email,
       password:hashpassword,
       name: req.body.name,
-      role:req.body.role
     } 
     const rese = await Signupmodel.create(datatostore);
-    res.status(200).json({ message: "done" });
+    res.status(200).json({ message: "done", data:rese});
   } 
  } 
  catch(e){
