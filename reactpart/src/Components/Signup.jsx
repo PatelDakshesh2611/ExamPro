@@ -28,7 +28,7 @@ const Signup = () => {
                 nav('/');
             }
         }
-    }, [signupData.error, signupData.alertmessage, signupData.initialize, dispatch, nav]);
+    },[signupData.initialize]);
 
     const handleSignup = async (e) => {
         e.preventDefault();

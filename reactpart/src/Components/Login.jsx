@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link for navigation
-
+import { doLogin, setToInitialize } from '../Actions';
 const Login = () => {
+    const dispatch=useDispatch(); 
+    const usersData=useSelector((state)=>state.signupReducer)
     const nav = useNavigate();
     const [formdata, setformdata] = useState({
         email: '',
@@ -20,9 +23,9 @@ const Login = () => {
         e.preventDefault();
         if (formdata.email && formdata.password) {
             try {
-                // const response = await axios.post('http://localhost:4000/login', formdata);
-                // console.log(response.data);
-                nav('/Home')
+                
+                dispatch(doLogin(formdata.email,formdata.password));
+                
             } catch (error) {
                 console.error('Error logging in:', error.message);
             }
@@ -30,6 +33,12 @@ const Login = () => {
             alert('Please enter your email and password');
         }
     };
+    useEffect(()=>{
+        if(!usersData.logininitialize){
+            dispatch(setToInitialize());
+            nav('/')
+        }
+    },[usersData.logininitialize])
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-cover" style={{ backgroundImage: 'url("/R.jpg")' }}>

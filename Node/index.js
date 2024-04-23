@@ -2,7 +2,8 @@ const express=require('express')
 const cors=require('cors')
 const bodyparser=require('body-parser')
 const  mongoose = require("mongoose"); 
-const  SignupController=require('./Controllers/Signup')
+const  SignupController=require('./Controllers/Signup');
+const LoginController = require('./Controllers/Login');
 const app=express()
 
 app.use(cors())
@@ -19,6 +20,9 @@ app.post('/signup',async(req,res)=>{
     SignupController(req,res);
 })
 
+app.post('/login',(req,res)=>{
+    LoginController(req,res)
+})
 app.listen(4000,()=>{
     console.log('listening at port 4000')
 })

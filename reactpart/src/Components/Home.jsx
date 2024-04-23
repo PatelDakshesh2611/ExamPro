@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux'
 
 const Home = () => {    
     const [showlanding,setshowlanding]=useState(0)
+    console.log(useSelector((state)=>state.signupReducer))
     const showlanginpage=()=>{
-        setshowlanding(0)
+        setshowlanding(1)
         setTimeout(() => {
             setshowlanding(0);
         }, 4000);
